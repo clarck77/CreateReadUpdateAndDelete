@@ -1,4 +1,3 @@
-// filepath: /D:/api-10-bookshelf/src/libs/server.js
 import 'dotenv/config';
 import Hapi from '@hapi/hapi';
 import environments from '../config/environments.js';
