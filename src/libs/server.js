@@ -1,7 +1,7 @@
-import 'dotenv/config';
-import Hapi from '@hapi/hapi';
-import environments from '../config/environments.js';
-import { nanoid } from 'nanoid';
+import "dotenv/config";
+import Hapi from "@hapi/hapi";
+import environments from "../config/environments.js";
+import { nanoid } from "nanoid";
 
 const books = [];
 
@@ -12,24 +12,44 @@ const init = async () => {
       port: environments.PORT,
       routes: {
         cors: {
-          origin: ['*'],
+          origin: ["*"],
         },
       },
     });
 
     server.route([
       {
-        method: 'POST',
-        path: '/books',
+        method: "POST",
+        path: "/books",
         handler: (request, h) => {
-          const { name, year, author, summary, publisher, pageCount, readPage, reading } = request.payload;
+          const {
+            name,
+            year,
+            author,
+            summary,
+            publisher,
+            pageCount,
+            readPage,
+            reading,
+          } = request.payload;
 
           if (!name) {
-            return h.response({ status: 'fail', message: 'Gagal menambahkan buku. Mohon isi nama buku' }).code(400);
+            return h
+              .response({
+                status: "fail",
+                message: "Gagal menambahkan buku. Mohon isi nama buku",
+              })
+              .code(400);
           }
 
           if (readPage > pageCount) {
-            return h.response({ status: 'fail', message: 'Gagal menambahkan buku. readPage tidak boleh lebih besar dari pageCount' }).code(400);
+            return h
+              .response({
+                status: "fail",
+                message:
+                  "Gagal menambahkan buku. readPage tidak boleh lebih besar dari pageCount",
+              })
+              .code(400);
           }
 
           const id = nanoid();
@@ -54,50 +74,89 @@ const init = async () => {
 
           books.push(newBook);
 
-          return h.response({ status: 'success', message: 'Buku berhasil ditambahkan', data: { bookId: id } }).code(201);
+          return h
+            .response({
+              status: "success",
+              message: "Buku berhasil ditambahkan",
+              data: { bookId: id },
+            })
+            .code(201);
         },
       },
       {
-        method: 'GET',
-        path: '/books',
+        method: "GET",
+        path: "/books",
         handler: (request, h) => {
-          const responseBooks = books.map(({ id, name, publisher }) => ({ id, name, publisher }));
-          return h.response({ status: 'success', data: { books: responseBooks } }).code(200);
+          const responseBooks = books.map(({ id, name, publisher }) => ({
+            id,
+            name,
+            publisher,
+          }));
+          return h
+            .response({ status: "success", data: { books: responseBooks } })
+            .code(200);
         },
       },
       {
-        method: 'GET',
-        path: '/books/{bookId}',
+        method: "GET",
+        path: "/books/{bookId}",
         handler: (request, h) => {
           const { bookId } = request.params;
           const book = books.find((b) => b.id === bookId);
 
           if (!book) {
-            return h.response({ status: 'fail', message: 'Buku tidak ditemukan' }).code(404);
+            return h
+              .response({ status: "fail", message: "Buku tidak ditemukan" })
+              .code(404);
           }
 
-          return h.response({ status: 'success', data: { book } }).code(200);
+          return h.response({ status: "success", data: { book } }).code(200);
         },
       },
       {
-        method: 'PUT',
-        path: '/books/{bookId}',
+        method: "PUT",
+        path: "/books/{bookId}",
         handler: (request, h) => {
           const { bookId } = request.params;
-          const { name, year, author, summary, publisher, pageCount, readPage, reading } = request.payload;
+          const {
+            name,
+            year,
+            author,
+            summary,
+            publisher,
+            pageCount,
+            readPage,
+            reading,
+          } = request.payload;
 
           if (!name) {
-            return h.response({ status: 'fail', message: 'Gagal memperbarui buku. Mohon isi nama buku' }).code(400);
+            return h
+              .response({
+                status: "fail",
+                message: "Gagal memperbarui buku. Mohon isi nama buku",
+              })
+              .code(400);
           }
 
           if (readPage > pageCount) {
-            return h.response({ status: 'fail', message: 'Gagal memperbarui buku. readPage tidak boleh lebih besar dari pageCount' }).code(400);
+            return h
+              .response({
+                status: "fail",
+                message:
+                  "Gagal memperbarui buku. readPage tidak boleh lebih besar dari pageCount",
+              })
+              .code(400);
           }
 
           const index = books.findIndex((b) => b.id === bookId);
 
           if (index === -1) {
-            return h.response({ status: 'fail', message: 'Gagal memperbarui buku. Id tidak ditemukan' }).code(404);
+            return h
+              .response({
+                status: "fail",
+                message: "Gagal memperbarui buku. Id tidak ditemukan",
+              })
+              .code(404);
           }
 
           const updatedAt = new Date().toISOString();
@@ -115,36 +174,48 @@ const init = async () => {
             updatedAt,
           };
 
-          return h.response({ status: 'success', message: 'Buku berhasil diperbarui' }).code(200);
+          return h
+            .response({
+              status: "success",
+              message: "Buku berhasil diperbarui",
+            })
+            .code(200);
         },
       },
       {
-        method: 'DELETE',
-        path: '/books/{bookId}',
+        method: "DELETE",
+        path: "/books/{bookId}",
         handler: (request, h) => {
           const { bookId } = request.params;
           const index = books.findIndex((b) => b.id === bookId);
 
           if (index === -1) {
-            return h.response({ status: 'fail', message: 'Buku gagal dihapus. Id tidak ditemukan' }).code(404);
+            return h
+              .response({
+                status: "fail",
+                message: "Buku gagal dihapus. Id tidak ditemukan",
+              })
+              .code(404);
           }
 
           books.splice(index, 1);
-          return h.response({ status: 'success', message: 'Buku berhasil dihapus' }).code(200);
+          return h
+            .response({ status: "success", message: "Buku berhasil dihapus" })
+            .code(200);
         },
       },
       {
-        method: 'GET',
-        path: '/author',
+        method: "GET",
+        path: "/author",
         handler: (request, h) => {
-          return h.response({ status: 'success', author: 'azzaky' }).code(200);
+          return h.response({ status: "success", author: "azzaky" }).code(200);
         },
       },
       {
-        method: '*',
-        path: '/{any*}',
+        method: "*",
+        path: "/{any*}",
         handler: (request, h) => {
-          return h.response({ status: 'fail', message: 'Not Found' }).code(404);
+          return h.response({ status: "fail", message: "Not Found" }).code(404);
         },
       },
     ]);
@@ -152,13 +223,13 @@ const init = async () => {
     await server.start();
     console.log(`[SERVER] running on ${server.info.uri}`);
   } catch (error) {
-    console.error('Error starting server:', error);
+    console.error("Error starting server:", error);
     process.exit(1);
   }
 };
 
-process.on('unhandledRejection', (err) => {
-  console.error('Unhandled Promise rejection:', err);
+process.on("unhandledRejection", (err) => {
+  console.error("Unhandled Promise rejection:", err);
   process.exit(1);
 });
 
