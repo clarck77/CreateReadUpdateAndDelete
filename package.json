@@ -1,0 +1,27 @@
+{
+  "name": "bookshelf-api",
+  "version": "1.0.0",
+  "description": "Bookshelf API project for managing book data",
+  "main": "src/libs/server.js",
+  "type": "module",
+  "dependencies": {
+    "@hapi/hapi": "^21.3.12",
+    "dotenv": "^10.0.0",
+    "nanoid": "^5.0.9"
+  },
+  "scripts": {
+    "start": "node src/libs/server.js"
+  },
+  "author": "Azzaky",
+  "license": "ISC",
+  "book": {
+    "name": "Buku A",
+    "year": 2010,
+    "author": "John Doe",
+    "summary": "Lorem ipsum dolor sit amet",
+    "publisher": "Dicoding Indonesia",
+    "pageCount": 100,
+    "readPage": 25,
+    "reading": false
+  }
+}
