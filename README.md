@@ -16,21 +16,26 @@ Proyek ini adalah aplikasi CRUD (Create, Read, Update, Delete) sederhana menggun
 
 1. **Clone repositori:**
    ```bash
-   git clone https://github.com/clarck77/repo-crud-nodejs.git
-   cd CreateReadUpdateAndDelete
+   git clone https://github.com/clarck77/CreateReadUpdateAndDelete.git
    ```
 
-2. **Install dependencies:**
+2. **Change Directory**
+   ```bash
+   cd CreateReadUpdateAndDelete
+   notes: sesuaikan dengan file tersebut ditaruh (disarankan ditaruh pada desktop, agar bisa menggunakan perintah diatas)
+   ```
+
+4. **Install dependencies:**
    ```bash
    npm install @hapi/hapi
    ```
 
-3. **Konfigurasi file `.env`:**
+5. **Konfigurasi file `.env`:**
    ```env
    PORT=9000
    ```
 
-4. **Jalankan server:**
+6. **Jalankan server:**
    ```bash
    npm run start
    ```
