@@ -9,7 +9,7 @@ Proyek ini adalah aplikasi CRUD (Create, Read, Update, Delete) sederhana menggun
 - **Delete**: Menghapus data.
 
 ## Teknologi yang Digunakan
-- **Node.js**
+- **JavaScript**
 - **Node.js**
 
 ## Instalasi
