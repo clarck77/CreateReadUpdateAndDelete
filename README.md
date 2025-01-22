@@ -65,6 +65,4 @@ Proyek ini adalah aplikasi **CRUD** (**Create, Read, Update, Delete**) sederhana
 ## 📜 Lisensi
 Proyek ini **tidak menggunakan lisensi**.
 
----
-
 > Amrullah Azzaky
