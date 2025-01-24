@@ -22,7 +22,7 @@ Proyek ini adalah aplikasi **CRUD** (**Create, Read, Update, Delete**) sederhana
 2. **📁 Change Directory:**
    ```bash
    cd CreateReadUpdateAndDelete
-   # notes: Sesuaikan dengan lokasi file Anda (disarankan di desktop untuk kemudahan).
+   # notes: Sesuaikan dengan lokasi file Anda (disarankan di directory desktop untuk kemudahan).
    ```
 
 3. **⚙️ Install dependencies:**
