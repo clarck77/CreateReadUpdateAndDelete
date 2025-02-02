@@ -22,20 +22,23 @@ Proyek ini adalah aplikasi **CRUD** (**Create, Read, Update, Delete**) sederhana
 2. **📁 Change Directory:**
    ```bash
    cd CreateReadUpdateAndDelete
-   # notes: Sesuaikan dengan lokasi file Anda (disarankan di directory desktop untuk kemudahan).
+   ```
+3. **🖊️ Open Text Editor:**
+   ```bash
+   code. 
    ```
 
-3. **⚙️ Install dependencies:**
+4. **⚙️ Install dependencies:**
    ```bash
    npm install @hapi/hapi
    ```
 
-4. **📝 Konfigurasi file `.env`:**
+5. **📝 Konfigurasi file `.env`:**
    ```env
    PORT=9000
    ```
 
-5. **▶️ Jalankan server:**
+6. **▶️ Jalankan server:**
    ```bash
    npm run start
    ```
