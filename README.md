@@ -10,7 +10,7 @@ Proyek ini adalah aplikasi **CRUD** (**Create, Read, Update, Delete**) sederhana
 
 ## 🛠️ Teknologi yang Digunakan
 - 💻 **JavaScript**
-- 🌐 **Node.js**
+- 🌐 **Node.JS**
 
 ## 🚀 Instalasi
 
