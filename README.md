@@ -63,6 +63,7 @@ Proyek ini adalah aplikasi **CRUD** (**Create, Read, Update, Delete**) sederhana
 │   └── 📄 environments.js
 ├── 📄 server.js
 ├── 📄 .env
+└── README.md
 ```
 
 ## 📜 Lisensi
