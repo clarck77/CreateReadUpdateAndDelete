@@ -35,7 +35,7 @@ Proyek ini adalah aplikasi **CRUD** (**Create, Read, Update, Delete**) sederhana
 
 5. **📝 Konfigurasi file `.env`:**
    ```env
-   PORT=9000
+   PORT = 9000
    ```
 
 6. **▶️ Jalankan server:**
